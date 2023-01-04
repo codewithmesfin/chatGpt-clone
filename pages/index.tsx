@@ -64,9 +64,9 @@ export default function Index() {
       });
   }
   return (
-    <div className="sm:p-10 bg-[#DDDDDD]">
+    <div className="bg-[#DDDDDD]">
       <div className="w-full sm:w-[60%] mx-auto">
-        <div className="shadow bg-white rounded h-[100vh]">
+        <div className="shadow bg-white rounded h-screen">
           <section className="overflow-y-scroll h-[70vh] sm:h-[80vh]"  ref={messageEl}>
             {groups.map((group: any, g: number) => (
               <div key={g}>
@@ -203,14 +203,12 @@ export default function Index() {
             )}
           </section>
 
-          <section className="sticky top-[80vh]">
+          <section className="fixed top-[80vh] w-full left-0 right-0">
             <div className="p-10">
               <div className="stretch mx-2 flex flex-row gap-3 pt-2 last:mb-2 md:last:mb-6 lg:mx-auto lg:max-w-3xl lg:pt-6">
                 <div className="relative flex h-full flex-1 md:flex-col">
                   <div className="flex flex-col w-full py-2 flex-grow md:py-3 md:pl-4 relative border border-black/10 bg-white dark:border-gray-900/50 dark:text-white dark:bg-gray-700 rounded-md shadow-[0_0_10px_rgba(0,0,0,0.10)] dark:shadow-[0_0_15px_rgba(0,0,0,0.10)]">
                     <textarea
-                      tabIndex={0}
-                      data-id="request-:r1:-7"
                       rows={1}
                       placeholder="Type anything here ..."
                       className="max-h-[200px] h-[24px] overflow-x-hidden m-0 w-full resize-none border-0 bg-transparent p-0 pl-2 pr-7 focus:ring-0 focus-visible:ring-0 dark:bg-transparent border-none focus:ring-0 focus:outline-none"
