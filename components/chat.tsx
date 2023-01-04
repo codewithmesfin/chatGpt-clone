@@ -336,7 +336,7 @@ export default function Chat() {
                       </div>
                     )}
                   </section>
-                  <section className="absolute border-t bottom-0 w-full md:w-[70%] mx-auto right-[0%] left-0 md:left-[30%]  w-full">
+                  <section className="absolute border-t bottom-0 w-full md:w-[70%] mx-auto right-[0%] left-0 md:left-[30%]">
                     <div className="flex items-end bg-white px-4 pt-5 pb-4">
                       <textarea
                         rows={2}
