@@ -203,7 +203,7 @@ export default function Index() {
             )}
           </section>
 
-          <section className="sticky top-[100vh]">
+          <section className="sticky top-[80vh]">
             <div className="p-10">
               <div className="stretch mx-2 flex flex-row gap-3 pt-2 last:mb-2 md:last:mb-6 lg:mx-auto lg:max-w-3xl lg:pt-6">
                 <div className="relative flex h-full flex-1 md:flex-col">
