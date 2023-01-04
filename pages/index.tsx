@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function Index() {
     const messageEl = useRef<any>(null);
+    console.log("AK: ",process.env.NEXT_PUBLIC_API_KEY)
     useEffect(() => {
     if (messageEl ) {
       messageEl.current.addEventListener('DOMNodeInserted', (event: { currentTarget: any; }) => {
