@@ -26,7 +26,6 @@ export default function Index() {
 
     var data = JSON.stringify({
       model: "text-davinci-003",
-      // prompt: "Can you tell me about Tesfa Coffee?",
       prompt: input,
       temperature: 0.9,
       max_tokens: 2000,
