@@ -117,7 +117,7 @@ export default function Chat() {
         }}
       >
         <div className="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0"></div>
-        <div className="md:absolute md:w-[70%] mx-auto left-0 right-0 md:p-10 h-screen">
+        <div className=" md:w-[70%] mx-auto left-0 right-0 md:p-10 h-screen">
           <div className="w-full h-full relative z-1 bg-gray-100 rounded shadow-sm overflow-hidden">
             <div className="md:flex justify-between">
               <section className="md:w-[30%] h-[100vh] border-r border-gray-300 hidden md:block">
@@ -188,7 +188,7 @@ export default function Chat() {
                     </h1>
                   </section>
                   <section
-                    className="overflow-y-scroll h-[100vh] sm:h-full"
+                    className="overflow-y-scroll h-[100vh] sm:h-[100vh]"
                     ref={messageEl}
                   >
                     {groups.map((group: any, g: number) => (
@@ -336,7 +336,7 @@ export default function Chat() {
                       </div>
                     )}
                   </section>
-                  <section className="absolute border-t bottom-0 w-full md:w-[70%] mx-auto right-[0%] left-0 md:left-[30%]">
+                  <section className="absolute border-t top-[77vh] md:top-[83vh] md:bottom-0 w-full md:w-[70%] mx-auto right-[0%] left-0 md:left-[30%]">
                     <div className="flex items-end bg-white px-4 pt-5 pb-4">
                       <textarea
                         rows={2}
