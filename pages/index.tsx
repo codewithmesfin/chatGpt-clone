@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function Index() {
     const messageEl = useRef<any>(null);
-    console.log("AK: ",process.env.NEXT_PUBLIC_API_KEY)
     useEffect(() => {
     if (messageEl ) {
       messageEl.current.addEventListener('DOMNodeInserted', (event: { currentTarget: any; }) => {
@@ -68,7 +67,7 @@ export default function Index() {
     <div className="sm:p-10 bg-[#DDDDDD]">
       <div className="w-full sm:w-[60%] mx-auto">
         <div className="shadow bg-white rounded h-[100vh]">
-          <section className="overflow-y-scroll h-[80vh]"  ref={messageEl}>
+          <section className="overflow-y-scroll h-[70vh] sm:h-[80vh]"  ref={messageEl}>
             {groups.map((group: any, g: number) => (
               <div key={g}>
                 <div>
