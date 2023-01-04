@@ -188,7 +188,7 @@ export default function Chat() {
                     </h1>
                   </section>
                   <section
-                    className="overflow-y-scroll h-[100vh] sm:h-[100vh]"
+                    className="overflow-y-scroll h-[100vh] sm:h-[80vh]"
                     ref={messageEl}
                   >
                     {groups.map((group: any, g: number) => (
