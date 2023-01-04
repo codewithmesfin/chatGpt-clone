@@ -2,10 +2,9 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function Index() {
-    const messageEl = useRef(null);
-    console.log(process.env.API_KEY)
+    const messageEl = useRef<any>(null);
     useEffect(() => {
-    if (messageEl &&  messageEl.current ) {
+    if (messageEl ) {
       messageEl.current.addEventListener('DOMNodeInserted', (event: { currentTarget: any; }) => {
         const { currentTarget: target } = event;
         target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
@@ -39,7 +38,7 @@ export default function Index() {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          `Bearer ${process.env.API_KEY}`,
+          `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
       },
       data: data,
     };
