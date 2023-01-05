@@ -109,11 +109,11 @@ export default function Menu(props: any) {
               </p>
             </div>
 
-            <div className="space-y-1 border-t px-2 pt-2 pb-3">
+            <div className="space-y-1 text-left border-t px-2 pt-2 pb-3">
               {props.history.map((item: any) => (
                 <Disclosure.Button
                   key={item.title}
-                  className="block px-3 py-2 rounded-md font-medium"
+                  className="block text-left px-3 py-2 rounded-md font-medium"
                   onClick={() => props.onHistoryClick(item)}
                 >
                   {item.title}
