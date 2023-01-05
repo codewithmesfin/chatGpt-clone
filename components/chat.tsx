@@ -187,7 +187,12 @@ export default function Chat() {
                         ))}
                       </div>
 
-                      <button>Log out</button>
+                      <button className="text-red-600"
+                       onClick={() => {
+                        localStorage.removeItem("user");
+                        window.location.reload();
+                      }}
+                      >Log out</button>
                      </div>
                       <div className="space-y-1 p-5 mt-3 py-3 border-y">
                         <p className="block text-sm rounded-md font-medium">

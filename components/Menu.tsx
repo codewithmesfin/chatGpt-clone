@@ -77,7 +77,7 @@ export default function Menu(props: any) {
 
             <div className="space-y-1 px-2 pt-2 pb-3 border-b">
               <Disclosure.Button
-                className="block px-3 py-2 rounded-md text-base text-red-600 font-medium"
+                className="block px-3 text-red-600 py-2 rounded-md text-base font-medium"
                 onClick={() => {
                   localStorage.removeItem("user");
                   window.location.reload();
