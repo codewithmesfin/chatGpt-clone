@@ -1,5 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 const links = [
   {
@@ -16,7 +17,7 @@ const links = [
   },
 ];
 
-export default function Menu(props:any) {
+export default function Menu(props: any) {
   return (
     <Disclosure as="nav" className="w-full">
       {({ open }) => (
@@ -66,11 +67,11 @@ export default function Menu(props:any) {
               <Disclosure.Button
                 className="block px-3 rounded-md text-base text-red-400 font-medium"
                 onClick={() => {
-                  localStorage.clear()
+                  localStorage.clear();
                   window.location.reload();
                 }}
               >
-               Clear Conversations
+                Clear Conversations
               </Disclosure.Button>
             </div>
 
@@ -87,7 +88,7 @@ export default function Menu(props:any) {
             </div>
 
             <div className="space-y-1 px-2 pt-2 pb-3">
-              {props.history.map((item:any) => (
+              {props.history.map((item: any) => (
                 <Disclosure.Button
                   key={item.title}
                   className="block px-3 py-2 rounded-md font-medium"
@@ -98,7 +99,27 @@ export default function Menu(props:any) {
               ))}
             </div>
 
-
+            <div className="space-y-1 p-2 pb-5">
+              <p className="block px-3 text-center text-sm rounded-md font-medium">
+                Developed by
+                <Link
+                  className="text-blue-600 px-2"
+                  href="https://www.linkedin.com/in/mesfin-tsegaye"
+                >
+                  Mesfin Tsegaye
+                </Link>
+                |
+                <span className="pl-2">
+                  Visit
+                  <Link
+                    className="text-blue-600 pl-2"
+                    href="https://bizenforce.vercel.app"
+                  >
+                    Bizenforce
+                  </Link>
+                </span>
+              </p>
+            </div>
           </Disclosure.Panel>
         </>
       )}

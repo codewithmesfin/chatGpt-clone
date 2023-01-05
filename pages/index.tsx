@@ -4,9 +4,13 @@ import Chat from "../components/chat";
 import Signin from "../components/signin";
 
 export default function Index() {
-  
-  return <div>
-   {/* <Signin/> */}
-   <Chat/>
-  </div>
+  useEffect(() => checkUser(), []);
+  const [user, setUser] = useState({});
+
+  const checkUser = () => {
+    const usr = localStorage.getItem("user");
+    if (usr) setUser({ ...user, ...JSON.parse(usr) });
+  };
+  // return user &&user.token ? <Chat /> : <Signin />
+  return <Chat/>
 }

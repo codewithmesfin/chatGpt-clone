@@ -138,6 +138,7 @@ export default function Chat() {
                         </Link>
                         clone.
                       </p>
+
                     </section>
                     {history.data.length <= 0 ? (
                       <section className="h-[65vh] flex p-5 items-center justify-center">
@@ -161,8 +162,9 @@ export default function Chat() {
                         ))}
                       </section>
                     )}
-                    <section className="sticky p-5 bg-white bottom-0 w-[100%] right-0 left-0  w-full">
-                      <div className="pb-3">
+                    <section className="sticky bg-white bottom-0 w-[100%] right-0 left-0  w-full">
+                     <div className="p-5">
+                     <div className="pb-3">
                         <button
                           className="font-semibold text-sm text-red-600 pb-3"
                           onClick={() => {
@@ -184,7 +186,29 @@ export default function Chat() {
                           </div>
                         ))}
                       </div>
+
                       <button>Log out</button>
+                     </div>
+                      <div className="space-y-1 p-5 mt-3 py-3 border-y">
+                        <p className="block text-sm rounded-md font-medium">
+                          Developed by
+                          <Link
+                            className="text-blue-600 px-2"
+                            href="https://www.linkedin.com/in/mesfin-tsegaye"
+                          >
+                            Mesfin Tsegaye
+                          </Link>
+                        </p>
+                        <p className="block text-sm rounded-md font-medium">
+                          Visit Website
+                          <Link
+                            className="text-blue-600 pl-2"
+                            href="https://bizenforce.vercel.app"
+                          >
+                            Bizenforce
+                          </Link>
+                        </p>
+                      </div>
                     </section>
                   </div>
                 </section>
@@ -247,12 +271,13 @@ export default function Chat() {
         <div className="w-full md:w-[70%] md:left-[15%] md:right-[15%] h-full  fixed mx-auto">
           <div className="shadow w-full h-full">
             <div className="flex flex-col justify-between  h-full">
-              <section className="border-b bg-green-100 flex justify-between">
+              <section className="border-b bg-green-100">
                 <Menu
                   history={history.data}
                   onHistoryClick={(e: any) => setGroup([e])}
                 />
               </section>
+
               <section
                 className="bg-blue-100 h-sceen overflow-y-scroll"
                 ref={messageEl}
@@ -260,12 +285,14 @@ export default function Chat() {
                 <MessageBody groups={groups} loading={item.loading} />
               </section>
               <section className="bottom-0 w-full">
-                <TextBox
-                  onChage={(e) => setInput(e)}
-                  onEnter={fetchData}
-                  onClick={fetchData}
-                  input={input}
-                />
+                <div>
+                  <TextBox
+                    onChage={(e) => setInput(e)}
+                    onEnter={fetchData}
+                    onClick={fetchData}
+                    input={input}
+                  />
+                </div>
               </section>
             </div>
           </div>
