@@ -93,7 +93,7 @@ export default function MessageBody({ groups, loading }: PROPS) {
                 </div>
                 <div className="w-full">
                   <div className="flex flex-grow flex-col gap-3">
-                    <p>Here is the result.</p>
+                   
                     <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
                       <div className="markdown prose w-full break-words dark:prose-invert light">
                         <code>{group.res}</code>
