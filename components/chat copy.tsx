@@ -149,7 +149,7 @@ export default function Chat() {
                             onClick={() => {
                               setGroup([x]);
                             }}
-                          >
+                           >
                             {x.title}
                           </button>
                         </div>
@@ -180,7 +180,7 @@ export default function Chat() {
                   </section>
                 </div>
               </section>
-              <section className="w-full bg-white md:w-[70%]"  ref={messageEl}>
+              <section className="w-full bg-white md:w-[70%]">
                 <div>
                   <section className="border-b py-5 px-10 bg-blue-100">
                     <h1 className="text-xl font-extrabold">
@@ -336,7 +336,7 @@ export default function Chat() {
                       </div>
                     )}
                   </section>
-                  <section className="absolute border-t bottom-0 w-full md:w-[70%] mx-auto right-[0%] left-0 md:left-[30%]">
+                  <section className="absolute border-t top-[80vh] md:top-[83vh] bottom-0 md:bottom-0 w-[100%] md:w-[70%] mx-auto right-[0%] left-0 md:left-[30%]">
                     <div className="flex items-end bg-white px-4 pt-5 pb-4">
                       <textarea
                         rows={2}
