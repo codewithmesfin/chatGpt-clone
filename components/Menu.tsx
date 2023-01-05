@@ -87,20 +87,8 @@ export default function Menu(props: any) {
               </Disclosure.Button>
             </div>
 
-            <div className="space-y-1 px-2 pt-2 pb-3">
-              {props.history.map((item: any) => (
-                <Disclosure.Button
-                  key={item.title}
-                  className="block px-3 py-2 rounded-md font-medium"
-                  onClick={() => props.onHistoryClick(item)}
-                >
-                  {item.title}
-                </Disclosure.Button>
-              ))}
-            </div>
-
-            <div className="space-y-1 p-2 pb-5">
-              <p className="block px-3 text-center text-sm rounded-md font-medium">
+            <div className="space-y-1 p-2 pb-4 pt-4">
+              <p className="block px-3 text-left text-sm rounded-md font-medium">
                 Developed by
                 <Link
                   className="text-blue-600 px-2"
@@ -120,6 +108,20 @@ export default function Menu(props: any) {
                 </span>
               </p>
             </div>
+
+            <div className="space-y-1 border-t px-2 pt-2 pb-3">
+              {props.history.map((item: any) => (
+                <Disclosure.Button
+                  key={item.title}
+                  className="block px-3 py-2 rounded-md font-medium"
+                  onClick={() => props.onHistoryClick(item)}
+                >
+                  {item.title}
+                </Disclosure.Button>
+              ))}
+            </div>
+
+            
           </Disclosure.Panel>
         </>
       )}
