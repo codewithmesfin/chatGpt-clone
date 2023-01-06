@@ -1,24 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import Menu from "./Menu";
-import MessageBody from "./MessageBody";
-import TextBox from "./TextBox";
+import React, { useEffect, useState } from "react";
+import SMConversation from "./sm/SM.Conversation";
+import SMSideNav from "./sm/SM.SideNav";
+import SMTextBox from "./sm/Sm.TextBox";
+import XSConversation from "./xs/XS.Conversation";
+import XSTextBox from "./xs/XS.TextBox";
+import XSMenu from "./xs/XSMenu";
 
 export default function Chat() {
-  const messageEl = useRef<any>(null);
-  useEffect(() => {
-    if (messageEl) {
-      messageEl.current.addEventListener(
-        "DOMNodeInserted",
-        (event: { currentTarget: any }) => {
-          const { currentTarget: target } = event;
-          target.scroll({ top: target.scrollHeight, behavior: "smooth" });
-        }
-      );
-    }
-  }, []);
-
   const [item, setItem] = useState({
     loading: false,
     data: [],
@@ -111,199 +102,83 @@ export default function Chat() {
   };
 
   return (
-    <div>
-      {/* Large screen */}
-      <div className="hidden sm:block">
-        <div
-          className="bg-no-repeat bg-cover bg-center h-screen relative"
-          style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80)",
-          }}
-        >
-          <div className="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0"></div>
-          <div className=" md:w-[70%] mx-auto left-0 right-0 md:p-10 h-screen">
-            <div className="w-full h-full relative z-1 bg-gray-100 rounded shadow-sm overflow-hidden">
-              <div className="md:flex justify-between">
-                <section className="md:w-[30%] h-[100vh] border-r border-gray-300 hidden md:block">
-                  <div className="w-full">
-                    <section className="p-5">
-                      <p className="text-center font-semibold">
-                        A simple AI powered Chatbot created from the{" "}
-                        <Link
-                          href={"https://openai.com"}
-                          className="text-blue-600 pr-1"
-                        >
-                          OpenAI
-                        </Link>
-                        clone.
-                      </p>
-
-                    </section>
-                    {history.data.length <= 0 ? (
-                      <section className="h-[65vh] flex p-5 items-center justify-center">
-                        <div>
-                          <h1 className="text-green-600">No chat history</h1>
-                        </div>
-                      </section>
-                    ) : (
-                      <section className="h-[100vh] p-5">
-                        {history.data.map((x: any, i) => (
-                          <div key={i} className="py-1">
-                            <button
-                              className="text-sm text-left"
-                              onClick={() => {
-                                setGroup([x]);
-                              }}
-                            >
-                              {x.title}
-                            </button>
-                          </div>
-                        ))}
-                      </section>
-                    )}
-                    <section className="sticky bg-white bottom-0 w-[100%] right-0 left-0  w-full">
-                     <div className="p-5">
-                     <div className="pb-3">
-                        <button
-                          className="font-semibold text-sm text-red-600 pb-3"
-                          onClick={() => {
-                            localStorage.clear();
-                            setGroup([]);
-                            setHistry({ ...history, data: [] });
-                          }}
-                        >
-                          Clear Conversations
-                        </button>{" "}
-                        {links.map((x, i) => (
-                          <div key={i} className="py-1">
-                            <Link
-                              href={x.href}
-                              className="font-semibold text-sm text-blue-600"
-                            >
-                              {x.title}{" "}
-                            </Link>
-                          </div>
-                        ))}
-                      </div>
-
-                      <button className="text-red-600"
-                       onClick={() => {
-                        localStorage.removeItem("user");
-                        window.location.reload();
-                      }}
-                      >Log out</button>
-                     </div>
-                      <div className="space-y-1 p-5 mt-3 py-3 border-y">
-                        <p className="block text-sm rounded-md font-medium">
-                          Developed by
-                          <Link
-                            className="text-blue-600 px-2"
-                            href="https://www.linkedin.com/in/mesfin-tsegaye"
-                          >
-                            Mesfin Tsegaye
-                          </Link>
-                        </p>
-                        <p className="block text-sm rounded-md font-medium">
-                          Visit Website
-                          <Link
-                            className="text-blue-600 pl-2"
-                            href="https://bizenforce.vercel.app"
-                          >
-                            Bizenforce
-                          </Link>
-                        </p>
-                      </div>
-                    </section>
-                  </div>
-                </section>
-                <section className="w-full bg-white md:w-[70%]">
-                  <div>
-                    <section className="border-b py-5 px-10 bg-blue-100">
-                      <h1 className="text-xl font-extrabold">
-                        Welcome to <span className="text-blue-600">BizeChat</span>
-                      </h1>
-                    </section>
-                    <section
-                      className="overflow-y-scroll h-[100vh] sm:h-[100vh]"
-                      ref={messageEl}
-                    >
-                      <MessageBody groups={groups} loading={item.loading} />
-                    </section>
-                    <section className="absolute border-t top-[80vh] md:top-[83vh] bottom-0 md:bottom-0 w-[100%] md:w-[70%] mx-auto right-[0%] left-0 md:left-[30%]">
-                      <div className="flex items-end bg-white px-4 pt-5 pb-4">
-                        <textarea
-                          rows={2}
-                          placeholder="Type anything here ..."
-                          className="max-h-[200px] text-xs h-[30px] overflow-x-hidden m-0 w-full resize-none border-0 bg-transparent p-0 md:pl-2 pr-7 focus:ring-0 focus-visible:ring-0 dark:bg-transparent border-none focus:ring-0 focus:outline-none"
-                          onChange={(e) => setInput(e.target.value)}
-                          value={input}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter" && input !== "") fetchData();
-                          }}
-                        />
-                        <button
-                          className="p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"
-                          onClick={fetchData}
-                          disabled={input === ""}
-                        >
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            stroke-width="0"
-                            viewBox="0 0 20 20"
-                            className="h-4 w-4 rotate-90"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
-                          </svg>
-                        </button>
-                      </div>
-                    </section>
-                  </div>
-                </section>
+    <div id="__next">
+      <div className="overflow-hidden w-full h-full relative hidden sm:block">
+        <div className="flex h-screen flex-1 flex-col md:pl-[260px]">
+          <main className="relative h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1">
+            <SMConversation groups={groups} loading={item.loading}  onPlaceholderClick={(e)=>{
+              setInput(e)
+              fetchData()
+            }} />
+            <section className="absolute bottom-0 left-0 w-full border-t md:border-t-0 dark:border-white/20 md:border-transparent  md:bg-vert-light-gradient bg-white dark:bg-gray-800 dark:md:bg-vert-dark-gradient">
+              <SMTextBox
+                onChage={(e) => setInput(e)}
+                onEnter={fetchData}
+                onClick={fetchData}
+                input={input}
+              />
+              <div className="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
+                <a
+                  href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline"
+                >
+                  ChatGPT Dec 15 Version
+                </a>
+                . Free Research Preview. Our goal is to make AI systems more
+                natural and safe to interact with. Your feedback will help us
+                improve. API integrated by: <Link className="text-blue-600" href="https://www.linkedin.com/in/mesfin-tsegaye">Mesfin Tsegaye</Link>
               </div>
-            </div>
-          </div>
+            </section>
+          </main>
+        </div>
+        <section className="dark hidden bg-gray-900 md:fixed md:inset-y-0 md:flex md:w-[260px] md:flex-col">
+          <SMSideNav   history={history.data}
+                  onHistoryClick={(e: any) => setGroup([e])} />
+        </section>
+      </div>
+
+      {/* small device  */}
+      <div className="overflow-hidden sm:hidden w-full h-full relative">
+        <div className="flex h-screen flex-1 flex-col md:pl-[260px]">
+          <XSMenu
+            history={history.data}
+            onHistoryClick={(e: any) => setGroup([e])}
+          />
+          <main className="relative pt-20 h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1">
+            <XSConversation groups={groups} loading={item.loading}
+             onPlaceholderClick={(e)=>{
+              setInput(e)
+              fetchData()
+            }}
+             />
+            <section className="fixed bottom-0 left-0 w-full border-t md:border-t-0 dark:border-white/20 md:border-transparent md:dark:border-transparent md:bg-vert-light-gradient bg-white dark:bg-gray-800 md:!bg-transparent dark:md:bg-vert-dark-gradient">
+              <XSTextBox
+                onChage={(e) => setInput(e)}
+                onEnter={fetchData}
+                onClick={fetchData}
+                input={input}
+              />
+              <div className="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
+                <a
+                  href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline"
+                >
+                  ChatGPT Dec 15 Version
+                </a>
+                . Free Research Preview. Our goal is to make AI systems more
+                natural and safe to interact with. Your feedback will help us
+                improve. <Link className="text-blue-600" href="https://www.linkedin.com/in/mesfin-tsegaye">Mesfin Tsegaye</Link>
+              </div>
+            </section>
+          </main>
         </div>
       </div>
-      {/* Large screen */}
 
-      {/* small screen    */}
-      <div className="relative sm:hidden w-full h-full">
-        <div className="w-full md:w-[70%] md:left-[15%] md:right-[15%] h-full  fixed mx-auto">
-          <div className="shadow w-full h-full">
-            <div className="flex flex-col justify-between  h-full">
-              <section className="border-b bg-green-100">
-                <Menu
-                  history={history.data}
-                  onHistoryClick={(e: any) => setGroup([e])}
-                />
-              </section>
-
-              <section
-                className="bg-blue-100 h-sceen overflow-y-scroll"
-                ref={messageEl}
-              >
-                <MessageBody groups={groups} loading={item.loading} />
-              </section>
-              <section className="bottom-0 w-full">
-                <div>
-                  <TextBox
-                    onChage={(e) => setInput(e)}
-                    onEnter={fetchData}
-                    onClick={fetchData}
-                    input={input}
-                  />
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* small screen  */}
+      {/* small device  */}
     </div>
   );
 }

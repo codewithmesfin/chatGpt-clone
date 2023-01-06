@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Typewriter__cursor{
+    display: none !important;
+}
