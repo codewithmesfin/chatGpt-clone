@@ -221,7 +221,7 @@ export default function Chat() {
                   <div>
                     <section className="border-b py-5 px-10 bg-blue-100">
                       <h1 className="text-xl font-extrabold">
-                        Welcome <span className="text-blue-600">BizeChat</span>
+                        Welcome to <span className="text-blue-600">BizeChat</span>
                       </h1>
                     </section>
                     <section

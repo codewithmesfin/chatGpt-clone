@@ -43,7 +43,7 @@ export default function Menu(props: any) {
               </div>
               <div className="absolute w-full">
                 <h1 className="text-xl text-center font-extrabold">
-                  Welcome <span className="text-blue-600">BizeChat</span>
+                  Welcome to <span className="text-blue-600">BizeChat</span>
                 </h1>
               </div>
             </div>
