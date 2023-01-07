@@ -102,8 +102,8 @@ export default function SMSideNav(props: any) {
                   <button
                     key={i}
                     onClick={()=>{
-                      setActive(i)
                       props.onHistoryClick(item)
+                      setActive(i)
                     }}
                     className={`flex py-3 px-3 items-center gap-3 relative rounded-md cursor-pointer break-all pr-14 ${active===i?'bg-gray-800':''} hover:bg-gray-800 group`}
                   >

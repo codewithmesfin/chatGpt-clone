@@ -30,7 +30,7 @@ export default function XSConversation({
   return groups.length <= 0 ? (
     <div
       ref={messageEl}
-      className="h-screen overflow-y-auto pb-32 justify-center items-center w-full flex"
+      className="h-screen overflow-y-auto pt-64 pb-32 justify-center items-center w-full flex"
     >
       <PlaceHolder onPlaceholderClick={(e: string) => onPlaceholderClick(e)} />
     </div>

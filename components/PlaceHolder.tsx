@@ -35,7 +35,7 @@ export default function PlaceHolder({onPlaceholderClick}:PROPS) {
       <h1 className="text-4xl text-center text-blue-600 font-extrabold md:6xl">
         BizeChat
       </h1>
-      <div className="py-10">
+      <div className="md:py-10">
         <div className="md:flex">
           {items.map((x, i) => (
             <div key={i}>
@@ -44,7 +44,7 @@ export default function PlaceHolder({onPlaceholderClick}:PROPS) {
                 <div className="py-3">
                   {x.children.map((item) => (
                     <div  onClick={() => onPlaceholderClick(item)}
-                     key={item} className="shadow-sm  hover:bg-[#DDDDDD] cursor-pointer bg-gray-100 rounded-md py-3 px-5 my-8">
+                     key={item} className="shadow-sm  hover:bg-[#DDDDDD] cursor-pointer bg-gray-100 rounded-md py-3 px-5 my-4 md:my-8">
                         <p className="text-sm text-center">{item}</p>
                     </div>
                   ))}

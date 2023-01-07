@@ -21,6 +21,7 @@ export default function Chat() {
   const [history, setHistry] = useState({ loading: true, data: [] });
   async function fetchData() {
     setItem({ ...item, loading: true });
+    
 
     var data = JSON.stringify({
       model: "text-davinci-003",
@@ -73,27 +74,14 @@ export default function Chat() {
       });
   }
 
-  const links = [
-    {
-      title: "What is OpenAI?",
-      href: "https://openai.com/",
-    },
-    {
-      title: "Try ChatGPT",
-      href: "https://chat.openai.com/chat",
-    },
-    {
-      title: "OpenAI Research",
-      href: "https://openai.com/research",
-    },
-  ];
 
   useEffect(() => {
     readHistories();
-  }, [item.loading]);
+  }, [item.loading,groups]);
 
   const readHistories = () => {
     const data = localStorage.getItem("histories");
+
     setHistry({
       ...history,
       loading: false,
@@ -136,7 +124,8 @@ export default function Chat() {
         </div>
         <section className="dark hidden bg-gray-900 md:fixed md:inset-y-0 md:flex md:w-[260px] md:flex-col">
           <SMSideNav   history={history.data}
-                  onHistoryClick={(e: any) => setGroup([e])} />
+                  onHistoryClick={(e: any) => {setGroup([...groups,e])
+                  }} />
         </section>
       </div>
 
@@ -144,8 +133,9 @@ export default function Chat() {
       <div className="overflow-hidden sm:hidden w-full h-full relative">
         <div className="flex h-screen flex-1 flex-col md:pl-[260px]">
           <XSMenu
-            history={history.data}
-            onHistoryClick={(e: any) => setGroup([e])}
+              history={history.data}
+              onHistoryClick={(e: any) => {setGroup([...groups,e])
+              }} 
           />
           <main className="relative pt-20 h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1">
             <XSConversation groups={groups} loading={item.loading}
