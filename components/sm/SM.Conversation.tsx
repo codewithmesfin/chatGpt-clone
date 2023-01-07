@@ -6,10 +6,14 @@ import TypeWriiter from "../TypeWriiter";
 interface PROPS {
   groups: any;
   loading: boolean;
-  onPlaceholderClick:(e:string)=>void
+  onPlaceholderClick: (e: string) => void;
 }
 
-export default function SMConversation({ groups, loading ,onPlaceholderClick}: PROPS) {
+export default function SMConversation({
+  groups,
+  loading,
+  onPlaceholderClick,
+}: PROPS) {
   const messageEl = useRef<any>(null);
   useEffect(() => {
     if (messageEl) {
@@ -23,18 +27,14 @@ export default function SMConversation({ groups, loading ,onPlaceholderClick}: P
     }
   }, []);
 
-  return loading ? (
+  return groups.length <= 0 ? (
     <div
       ref={messageEl}
-      className="h-screen overflow-y-auto pb-32 justify-center items-center w-full flex"
+      className="h-screen justify-center items-center w-full flex"
     >
-      <p className="text-blue-400 text-semibold"><TypeWriiter text="Wait a momet, let me think a bit ..." /></p>
+      <PlaceHolder onPlaceholderClick={(e: string) => onPlaceholderClick(e)} />
     </div>
-  ) : groups.length<=0?
-  <div ref={messageEl} className="h-screen justify-center items-center w-full flex">
-    <PlaceHolder onPlaceholderClick={(e:string) =>onPlaceholderClick(e)}/>
-  </div>
-  :(
+  ) : (
     <div className="flex-1 overflow-hidden">
       <div className="h-full overflow-y-auto " ref={messageEl}>
         {groups.map((group: any, g: number) => (
@@ -118,8 +118,12 @@ export default function SMConversation({ groups, loading ,onPlaceholderClick}: P
                   <div className="flex flex-grow flex-col gap-3">
                     <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
                       <div className="markdown prose w-full break-words dark:prose-invert dark">
-                      <p>
-                          <TypeWriiter text={group.res} />
+                        <p>
+                          {g === groups.length - 1 ? (
+                            <TypeWriiter text={group.res} />
+                          ) : (
+                            group.res
+                          )}
                         </p>
                       </div>
                     </div>
@@ -163,7 +167,16 @@ export default function SMConversation({ groups, loading ,onPlaceholderClick}: P
             </div>
           </div>
         ))}
-
+        {loading && (
+          <div
+            ref={messageEl}
+            className="h-screen p-10 overflow-y-auto pb-32 justify-center items-center w-full flex"
+          >
+            <p className="text-blue-400 text-center text-semibold">
+              <TypeWriiter text="Wait a moment, let me think a bit ..." />
+            </p>
+          </div>
+        )}
         <div className="w-full h-48 flex-shrink-0" />
       </div>
     </div>
