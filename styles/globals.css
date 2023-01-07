@@ -5,3 +5,25 @@
 .Typewriter__cursor{
     display: none !important;
 }
+
+
+.three-dot:before {
+    animation: dots 2s linear infinite;
+    content: '';
+    font-size: 30px;
+  }
+
+  @keyframes dots {
+    0%, 20% {
+      content: '.';
+    }
+    40% {
+      content: '..';
+    }
+    60% {
+      content: '...';
+    }
+    90%, 100% {
+      content: '';
+    }
+}

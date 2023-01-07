@@ -173,7 +173,7 @@ export default function SMConversation({
             className="h-screen p-10 overflow-y-auto pb-32 justify-center items-center w-full flex"
           >
             <p className="text-blue-400 text-center text-semibold">
-              <TypeWriiter text="Wait a moment, let me think a bit ..." />
+              <TypeWriiter text="Wait a moment, let me think a bit ..." /> 
             </p>
           </div>
         )}

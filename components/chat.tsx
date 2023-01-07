@@ -116,6 +116,7 @@ export default function Chat() {
                 onEnter={fetchData}
                 onClick={fetchData}
                 input={input}
+                loading={item.loading}
               />
               <div className="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
                 <a
@@ -159,6 +160,7 @@ export default function Chat() {
                 onEnter={fetchData}
                 onClick={fetchData}
                 input={input}
+                loading={item.loading}
               />
               <div className="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
                 <a
