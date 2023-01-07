@@ -118,7 +118,7 @@ export default function SMConversation({
                   <div className="flex flex-grow flex-col gap-3">
                     <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
                       <div className="markdown prose w-full break-words dark:prose-invert dark">
-                        <p>
+                        <p className="text-left">
                           {g === groups.length - 1 ? (
                             <TypeWriiter text={group.res} />
                           ) : (
@@ -170,7 +170,7 @@ export default function SMConversation({
         {loading && (
           <div
             ref={messageEl}
-            className="h-full p-10 overflow-y-auto pb-32 justify-center items-center w-full flex"
+            className="p-10x py-16 justify-center items-center w-full"
           >
             <p className="text-blue-400 text-center text-semibold">
               <TypeWriiter text="Wait a moment, let me think a bit ..." /> 

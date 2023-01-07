@@ -116,11 +116,11 @@ export default function XSConversation({
                     </svg>
                   </div>
                 </div>
-                <div className="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]">
-                  <div className="flex flex-grow flex-col gap-3">
+                <div className="relative flex w-full md:w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]">
+                  <div className="flex flex-grow flex-col md:gap-3">
                     <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
-                      <div className="markdown p-10 w-full prose w-full break-words dark:prose-invert dark">
-                        <p className="text-center">
+                      <div className="markdown md:p-10 w-full prose w-full break-words dark:prose-invert dark">
+                        <p className="text-left">
                           {g === groups.length - 1 ? (
                             <TypeWriiter text={group.res} />
                           ) : (
@@ -173,7 +173,7 @@ export default function XSConversation({
           loading   && (
             <div
               ref={messageEl}
-              className="h-full overflow-y-auto pb-32 justify-center items-center w-full flex"
+              className="py-16 justify-center items-center w-full flex"
             >
               <p className="text-blue-400 text-semibold">
                 <TypeWriiter text="Wait a momet, let me think a bit ..." />
