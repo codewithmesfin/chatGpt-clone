@@ -172,7 +172,7 @@ export default function XSConversation({
         loading ? (
     <div
       ref={messageEl}
-      className="h-screen overflow-y-auto pb-32 justify-center items-center w-full flex"
+      className="h-full overflow-y-auto pb-32 justify-center items-center w-full flex"
     >
       <p className="text-blue-400 text-semibold"><TypeWriiter text="Wait a momet, let me think a bit ..." /></p>
     </div>
