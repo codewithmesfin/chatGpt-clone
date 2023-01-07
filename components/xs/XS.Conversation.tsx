@@ -27,7 +27,7 @@ export default function XSConversation({
     }
   }, []);
 
-  return   groups.length <= 0 ? (
+  return groups.length <= 0 ? (
     <div
       ref={messageEl}
       className="h-screen overflow-y-auto pb-32 justify-center items-center w-full flex"
@@ -120,7 +120,7 @@ export default function XSConversation({
                   <div className="flex flex-grow flex-col gap-3">
                     <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
                       <div className="markdown p-10 w-full prose w-full break-words dark:prose-invert dark">
-                      <p className="text-center">
+                        <p className="text-center">
                           {g === groups.length - 1 ? (
                             <TypeWriiter text={group.res} />
                           ) : (
@@ -169,14 +169,18 @@ export default function XSConversation({
             </div>
           </div>
         ))}
-        loading ? (
-    <div
-      ref={messageEl}
-      className="h-full overflow-y-auto pb-32 justify-center items-center w-full flex"
-    >
-      <p className="text-blue-400 text-semibold"><TypeWriiter text="Wait a momet, let me think a bit ..." /></p>
-    </div>
-  )
+        {
+          loading   && (
+            <div
+              ref={messageEl}
+              className="h-full overflow-y-auto pb-32 justify-center items-center w-full flex"
+            >
+              <p className="text-blue-400 text-semibold">
+                <TypeWriiter text="Wait a momet, let me think a bit ..." />
+              </p>
+            </div>
+            )
+        }
         <div className="w-full h-48 flex-shrink-0" />
       </div>
     </div>
