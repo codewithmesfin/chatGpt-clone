@@ -13,7 +13,9 @@ export default function SMTextBox({ onChage, onEnter, input, onClick,loading }: 
     <div className="stretch mx-2 flex flex-row gap-3 pt-2 last:mb-2 md:last:mb-6 lg:mx-auto lg:max-w-3xl lg:pt-6">
       <div className="relative flex h-full flex-1 md:flex-col">
         <div className="ml-1 mt-1.5 md:w-full md:m-auto md:flex md:mb-2 gap-2 justify-center">
-          <button className="btn py-1.5 px-5 rounded flex justify-center items-center gap-2 btn-neutral border-0 md:border">
+          <button   
+            onClick={onClick}
+           className="btn py-1.5 px-5 rounded flex justify-center items-center gap-2 btn-neutral border-0 md:border">
             <svg
               stroke="currentColor"
               fill="none"

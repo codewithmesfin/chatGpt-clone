@@ -119,8 +119,9 @@ export default function SMConversation({
                     <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
                       <div className="markdown prose w-full break-words dark:prose-invert dark">
                         <p className="text-left">
-                          {g === groups.length - 1 ? (
-                            <TypeWriiter text={group.res} />
+                         
+                          { g === groups.length - 1 ? (
+                          loading ?<span className="three-dot pl-2"></span> :   <TypeWriiter text={group.res} />
                           ) : (
                             group.res
                           )}
@@ -128,7 +129,7 @@ export default function SMConversation({
                       </div>
                     </div>
                   </div>
-                  <div className="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible">
+                 {!loading && groups.length>0 && <div className="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible">
                     <button className="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400">
                       <svg
                         stroke="currentColor"
@@ -161,22 +162,13 @@ export default function SMConversation({
                         <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" />
                       </svg>
                     </button>
-                  </div>
+                  </div>}
                 </div>
               </div>
             </div>
           </div>
         ))}
-        {loading && (
-          <div
-            ref={messageEl}
-            className="p-10x py-16 justify-center items-center w-full"
-          >
-            <p className="text-blue-400 text-center text-semibold">
-              <TypeWriiter text="Wait a moment, let me think a bit ..." /> 
-            </p>
-          </div>
-        )}
+
         <div className="w-full h-48 flex-shrink-0" />
       </div>
     </div>

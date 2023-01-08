@@ -121,8 +121,9 @@ export default function XSConversation({
                     <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
                       <div className="markdown md:p-10 w-full prose w-full break-words dark:prose-invert dark">
                         <p className="text-left">
-                          {g === groups.length - 1 ? (
-                            <TypeWriiter text={group.res} />
+                          
+                        { g === groups.length - 1 ? (
+                          loading ?<span className="three-dot pl-2"></span> :   <TypeWriiter text={group.res} />
                           ) : (
                             group.res
                           )}
@@ -169,18 +170,6 @@ export default function XSConversation({
             </div>
           </div>
         ))}
-        {
-          loading   && (
-            <div
-              ref={messageEl}
-              className="py-16 justify-center items-center w-full flex"
-            >
-              <p className="text-blue-400 text-semibold">
-                <TypeWriiter text="Wait a momet, let me think a bit ..." />
-              </p>
-            </div>
-            )
-        }
         <div className="w-full h-48 flex-shrink-0" />
       </div>
     </div>
