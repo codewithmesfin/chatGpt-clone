@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Chat from "../components/chat";
 import Signin from "../components/signin";
 
-export default function EtyopChat() {
+export default function BizeChat() {
   useEffect(() => checkUser(), []);
   const [user, setUser] = useState({});
 

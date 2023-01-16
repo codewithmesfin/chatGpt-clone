@@ -21,7 +21,7 @@ export default function Index() {
           <div className="mx-auto w-full md:max-w-3xl md:p-10">
             <div>
               <div className="py-5 pb-10">
-                <h1 className="text-center font-extrabold text-blue-600 text-4xl md:text-6xl">EtyopChat</h1>
+                <h1 className="text-center font-extrabold text-blue-600 text-4xl md:text-6xl">BizeChat</h1>
               </div>
               <div className="mb-8 sm:flex sm:justify-center">
                 <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
