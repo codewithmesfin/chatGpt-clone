@@ -16,7 +16,7 @@ export default function JoinNow() {
           <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
             <div className="self-start hidden lg:flex flex-col  text-white">
               <h1 className="mb-3 font-bold text-5xl">
-                Hi ? Welcome BizeChat{" "}
+                Hi ? Welcome EtyopChat{" "}
               </h1>
               <p className="pr-3">
                 Lorem ipsum is placeholder text commonly used in the graphic,
@@ -31,7 +31,7 @@ export default function JoinNow() {
                 <h3 className="font-semibold text-2xl text-gray-800">
                 Sign up
                 </h3>
-                <p className="text-gray-500"> Join BizeChat for free</p>
+                <p className="text-gray-500"> Join EtyopChat for free</p>
               </div>
               <div className="space-y-5">
                 <div className="space-y-2">
