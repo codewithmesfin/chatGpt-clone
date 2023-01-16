@@ -20,6 +20,7 @@ export default function Chat() {
   const [input, setInput] = useState("");
   const [groups, setGroup] = useState<any>([]);
   const [history, setHistry] = useState({ loading: true, data: [] });
+  const[currentResult,setCurrentResult]=useState("")
   async function fetchData() {
     if (item.title !== "" || input!=="") {
       setItem({ ...item, loading: true, title: input });
@@ -36,7 +37,7 @@ export default function Chat() {
 
       var data = JSON.stringify({
         model: "text-davinci-003",
-        prompt: item.title || input,
+        prompt: currentResult!==""?currentResult+(item.title || input):(item.title || input),
         temperature: 0.9,
         max_tokens: 2000,
         top_p: 1,
@@ -73,6 +74,7 @@ export default function Chat() {
           });
 
           setGroup(finalData);
+          setCurrentResult(response.data.choices[0].text)
           localStorage.setItem("histories", JSON.stringify(finalData));
           setInput("");
         })
