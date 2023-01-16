@@ -66,7 +66,7 @@ export default function Signin() {
         <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
           <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
             <div className="self-start hidden lg:flex flex-col  text-white">
-              <h1 className="mb-3 font-bold text-5xl">Hi ? Welcome BizeChat</h1>
+              <h1 className="mb-3 font-bold text-5xl">Hi ? Welcome EtyopChat</h1>
               <p className="pr-3">
                 Lorem ipsum is placeholder text commonly used in the graphic,
                 print, and publishing industries for previewing layouts and

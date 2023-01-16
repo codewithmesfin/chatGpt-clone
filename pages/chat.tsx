@@ -1,9 +1,10 @@
 import axios from "axios";
+import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
 import Chat from "../components/chat";
 import Signin from "../components/signin";
 
-export default function BizeChat() {
+export default function EtyopChat() {
   useEffect(() => checkUser(), []);
   const [user, setUser] = useState({});
 
@@ -12,5 +13,20 @@ export default function BizeChat() {
     if (usr) setUser({ ...user, ...JSON.parse(usr) });
   };
   // return user &&user.token ? <Chat /> : <Signin />
-  return <Chat/>
+  return <div>
+     <Head>
+        <title>EtyopChat</title>
+        <meta
+          name="description"
+          content="We are dedicated to creating the highest quality software products with exceptional brands of any size. Our goal is to consistently provide our customers with extraordinary services, offering fast, reliable turn arounds with low minimums and high volume capacity"
+          key="desc"
+        />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5828433625810537"
+          crossOrigin="anonymous"
+        ></script>
+      </Head>
+      <Chat/>
+  </div>
 }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import Head from "next/head";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -16,12 +17,25 @@ export default function Index() {
 
   return (
     <div className="isolate bg-white">
+      <Head>
+        <title>EtyopChat</title>
+        <meta
+          name="description"
+          content="We are dedicated to creating the highest quality software products with exceptional brands of any size. Our goal is to consistently provide our customers with extraordinary services, offering fast, reliable turn arounds with low minimums and high volume capacity"
+          key="desc"
+        />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5828433625810537"
+          crossOrigin="anonymous"
+        ></script>
+      </Head>
       <main>
         <div className="relative px-6 lg:px-8">
           <div className="mx-auto w-full md:max-w-3xl md:p-10">
             <div>
               <div className="py-5 pb-10">
-                <h1 className="text-center font-extrabold text-blue-600 text-4xl md:text-6xl">BizeChat</h1>
+                <h1 className="text-center font-extrabold text-blue-600 text-4xl md:text-6xl">EtyopChat</h1>
               </div>
               <div className="mb-8 sm:flex sm:justify-center">
                 <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
