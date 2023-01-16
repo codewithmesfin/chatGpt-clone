@@ -21,6 +21,11 @@ export default function EtyopChat() {
           content="We are dedicated to creating the highest quality software products with exceptional brands of any size. Our goal is to consistently provide our customers with extraordinary services, offering fast, reliable turn arounds with low minimums and high volume capacity"
           key="desc"
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5828433625810537"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <Chat/>
   </div>
