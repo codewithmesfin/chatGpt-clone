@@ -33,10 +33,10 @@ export default function Index() {
                 Powerful Chatbot for AI lovers
               </h1>
               <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                A simple AI powered chat-bot developed by utilizing the
-                OpenAI Chat API endpoint. This technology enables developers to
-                create interactive, natural language-based conversations with
-                users. The simplest alternative to
+                A simple AI powered chat-bot developed by utilizing the OpenAI
+                Chat API endpoint. This technology enables developers to create
+                interactive, natural language-based conversations with users.
+                The simplest alternative to
                 <Link
                   href="https://chat.openai.com"
                   target="_blank"
@@ -74,11 +74,7 @@ export default function Index() {
               </Link>
             </div>
             <div className="hidden items-end justify-center lg:mt-0 lg:col-span-5 lg:flex">
-              <img
-                src="/i1.png"
-                alt="mockup"
-                className="max-h-[450px]"
-              />
+              <img src="/i1.png" alt="mockup" className="max-h-[450px]" />
             </div>
           </div>
         </section>
@@ -106,7 +102,6 @@ export default function Index() {
             <div className="grid grid-cols-2 gap-4 mt-8">
               <img
                 className="w-full rounded-lg"
-                // src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
                 src="/i2.avif"
                 alt="office content 1"
               />
@@ -122,8 +117,14 @@ export default function Index() {
           <div className="py-8 md:flex md:space-x-20 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div className="w-full md:w-1/2 text-gray-500 sm:text-lg dark:text-gray-400">
               <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
-              Building next-gen apps with {" "}
-                <Link href="https://openai.com/" className="font-extrabold text-blue-600">OpenAI’s</Link>  powerful models.
+                Building next-gen apps with{" "}
+                <Link
+                  href="https://openai.com/"
+                  className="font-extrabold text-blue-600"
+                >
+                  OpenAI’s
+                </Link>{" "}
+                powerful models.
               </h2>
               <p className="mb-4 font-light">
                 The team at OpenAI trained a model called ChatGPT which
@@ -135,7 +136,8 @@ export default function Index() {
                 detailed response.
               </p>
               <Link
-                href="https://openai.com" target="_blank"
+                href="https://openai.com"
+                target="_blank"
                 className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700"
               >
                 Learn more
@@ -169,13 +171,13 @@ export default function Index() {
                   <h1 className="text-xl py-2 md:text-2xl font-semibold">
                     Mesfin Tsegaye
                   </h1>
-                  <p>
+                  <p className="text-sm md:text-md">
                     Full Stack Developer with 5 years of experience as a Full
                     stack developer in international companies. Mesfin loves
                     Programming; studying real world problems and looking for a
                     better solution.
                   </p>
-                  <div className="flex justify-between items-center space-2">
+                  <div className="flex justify-between items-center space-2 pt-2">
                     <Link
                       href="https://bizenforce.vercel.app"
                       className="hover:underline"
@@ -185,13 +187,13 @@ export default function Index() {
 
                     <Link
                       href="https://www.linkedin.com/in/mesfin-tsegaye"
-                      className="text-blue-600 hover:text-blue-900 dark:hover:text-white"
+                      className="text-blue-600 hover:text-blue-900 dark:hover:text-white text-sm md:text-md"
                     >
                       Linkedin
                     </Link>
                     <Link
                       href="https://github.com/sciemesfin"
-                      className="text-blue-600 hover:text-blue-900 dark:hover:text-white"
+                      className="text-blue-600 hover:text-blue-900 dark:hover:text-white text-sm md:text-md"
                     >
                       Github
                     </Link>
