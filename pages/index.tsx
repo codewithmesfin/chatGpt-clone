@@ -172,7 +172,7 @@ export default function Index() {
                     Mesfin Tsegaye
                   </h1>
                   <p className="text-sm md:text-md">
-                    Full Stack Developer with 5 years of experience as a Full
+                    Software Engineer with 5 years of experience as a Full
                     stack developer in international companies. Mesfin loves
                     Programming; studying real world problems and looking for a
                     better solution.
