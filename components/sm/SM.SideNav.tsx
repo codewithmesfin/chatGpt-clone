@@ -2,9 +2,29 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 export default function SMSideNav(props: any) {
-  const[active,setActive]=useState(-1)
+  const [active, setActive] = useState(-1);
   const links = [
-  
+    {
+      title: "Homepage",
+      href: "/",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+          />
+        </svg>
+      ),
+    },
+
     {
       title: "API Developer",
       href: "https://beta.openai.com/examples",
@@ -78,7 +98,10 @@ export default function SMSideNav(props: any) {
     <div className="flex h-full min-h-0 flex-col ">
       <div className="scrollbar-trigger flex h-full w-full flex-1 items-start border-white/20">
         <nav className="flex h-full flex-1 flex-col space-y-1 p-2">
-          <a className="flex py-3 px-3 items-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200 text-white cursor-pointer text-sm mb-2 flex-shrink-0 border border-white/20">
+          <button
+            onClick={props.newChat}
+            className="flex py-3 px-3 items-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200 text-white cursor-pointer text-sm mb-2 flex-shrink-0 border border-white/20"
+          >
             <svg
               stroke="currentColor"
               fill="none"
@@ -95,18 +118,20 @@ export default function SMSideNav(props: any) {
               <line x1={5} y1={12} x2={19} y2={12} />
             </svg>
             New chat
-          </a>
+          </button>
           <div className="flex-col flex-1 overflow-y-auto border-b border-white/20">
             <div className="flex flex-col gap-2 text-gray-100 text-sm">
               {props.history.length > 0 &&
-                props.history.map((item:any, i:number) => (
+                props.history.map((item: any, i: number) => (
                   <button
                     key={i}
-                    onClick={()=>{
-                      props.onHistoryClick(item)
-                      setActive(i)
+                    onClick={() => {
+                      props.onHistoryClick(item);
+                      setActive(i);
                     }}
-                    className={`flex py-3 px-3 items-center gap-3 relative rounded-md cursor-pointer break-all pr-14 ${active===i?'bg-gray-800':''} hover:bg-gray-800 group`}
+                    className={`flex py-3 px-3 items-center gap-3 relative rounded-md cursor-pointer break-all pr-14 ${
+                      active === i ? "bg-gray-800" : ""
+                    } hover:bg-gray-800 group`}
                   >
                     <svg
                       stroke="currentColor"
@@ -123,12 +148,10 @@ export default function SMSideNav(props: any) {
                       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                     </svg>
                     <div className="flex-1 text-left text-ellipsis max-h-5 overflow-hidden break-all relative">
-                     {item.title}
+                      {item.title}
                     </div>
                   </button>
                 ))}
-
-             
             </div>
           </div>
           <button

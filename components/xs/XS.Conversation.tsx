@@ -27,6 +27,8 @@ export default function XSConversation({
     }
   }, []);
 
+console.log("group?",groups)
+
   return groups.length <= 0 ? (
     <div
       ref={messageEl}

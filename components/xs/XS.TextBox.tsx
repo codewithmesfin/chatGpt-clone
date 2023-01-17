@@ -4,11 +4,13 @@ interface PROPS {
   onChage: (e: string) => void;
   onEnter: any;
   input: string;
-  onClick: any;
-  loading:boolean
+  onRefresh: any;
+  saveHistory: any;
+  loading: boolean;
+  onSubmit: any;
 }
 
-export default function XSTextBox({ onChage, onEnter, input, onClick,loading }: PROPS) {
+export default function XSTextBox({ onChage, onEnter, input, onRefresh,onSubmit,loading,saveHistory }: PROPS) {
   return (
     <div className="stretch mx-2 flex flex-row gap-3 pt-2 last:mb-2 md:last:mb-6 lg:mx-auto lg:max-w-3xl lg:pt-6">
       <div className="relative flex items-center h-full flex-1 md:flex-col">
@@ -54,7 +56,7 @@ export default function XSTextBox({ onChage, onEnter, input, onClick,loading }: 
             }}
           />
          <button
-            onClick={onClick}
+            onClick={onSubmit}
             disabled={input === ""}
             className="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"
           >
@@ -76,8 +78,8 @@ export default function XSTextBox({ onChage, onEnter, input, onClick,loading }: 
             </svg>}
           </button>
         </div>
-        <div className="ml-1 mt-1.5 md:w-full md:m-auto md:flex md:mb-2 gap-2 justify-center">
-          <button className="btn flex justify-center gap-2 btn-neutral border-0 md:border">
+        <div className="ml-1 mt-1.5  md:w-full md:m-auto flex md:mb-2 gap-2 justify-center">
+          <button onClick={onRefresh} className="btn ml-1 flex justify-center gap-2 btn-neutral border-0 md:border">
             <svg
               stroke="currentColor"
               fill="none"
@@ -93,6 +95,22 @@ export default function XSTextBox({ onChage, onEnter, input, onClick,loading }: 
               <polyline points="1 4 1 10 7 10" />
               <polyline points="23 20 23 14 17 14" />
               <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15" />
+            </svg>
+          </button>
+          <button   onClick={saveHistory} className="btn ml-1 flex justify-center gap-2 btn-neutral border-0 md:border">
+          <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
+              />
             </svg>
           </button>
         </div>

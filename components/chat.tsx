@@ -20,9 +20,9 @@ export default function Chat() {
   const [input, setInput] = useState("");
   const [groups, setGroup] = useState<any>([]);
   const [history, setHistry] = useState({ loading: true, data: [] });
-  const[currentResult,setCurrentResult]=useState("")
+  const [currentResult, setCurrentResult] = useState("");
   async function fetchData() {
-    if (item.title !== "" || input!=="") {
+    if (item.title !== "" || input !== "") {
       setItem({ ...item, loading: true, title: input });
       const chatData = [
         ...groups,
@@ -37,7 +37,10 @@ export default function Chat() {
 
       var data = JSON.stringify({
         model: "text-davinci-003",
-        prompt: currentResult!==""?currentResult+(item.title || input):(item.title || input),
+        prompt:
+          currentResult !== ""
+            ? currentResult + (item.title || input)
+            : item.title || input,
         temperature: 0.9,
         max_tokens: 2000,
         top_p: 1,
@@ -74,8 +77,8 @@ export default function Chat() {
           });
 
           setGroup(finalData);
-          setCurrentResult(response.data.choices[0].text)
-          localStorage.setItem("histories", JSON.stringify(finalData));
+          setCurrentResult(response.data.choices[0].text);
+          // localStorage.setItem("histories", JSON.stringify(finalData));
           setInput("");
         })
         .catch(function (error) {
@@ -90,12 +93,34 @@ export default function Chat() {
 
   const readHistories = () => {
     const data = localStorage.getItem("histories");
-
     setHistry({
       ...history,
       loading: false,
       data: data ? JSON.parse(data) : [],
     });
+  };
+
+  const onRefresh = () => {
+    // alert(groups[groups.length-1].title)
+    setItem({ ...item, loading: true, title: groups[groups.length - 1].title });
+    setInput(groups[groups.length - 1].title);
+    fetchData();
+  };
+
+  const saveHistory = () => {
+    const savedHistoryRaw = localStorage.getItem("histories");
+    const savedHistory =
+      savedHistoryRaw &&
+      savedHistoryRaw !== null &&
+      savedHistoryRaw !== undefined
+        ? JSON.parse(savedHistoryRaw)
+        : [];
+    const newHistory = {
+      title: groups[groups.length - 1].title,
+      data: groups,
+    };
+    const history = [...savedHistory, ...[newHistory]];
+    localStorage.setItem("histories", JSON.stringify(history));
   };
 
   return (
@@ -115,9 +140,11 @@ export default function Chat() {
               <SMTextBox
                 onChage={(e) => setInput(e)}
                 onEnter={fetchData}
-                onClick={fetchData}
+                onRefresh={onRefresh}
                 input={input}
                 loading={item.loading}
+                saveHistory={saveHistory}
+                onSubmit={fetchData}
               />
               <div className="px-3 max-w-[70%] mx-auto pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
                 <a
@@ -145,8 +172,9 @@ export default function Chat() {
           <SMSideNav
             history={history.data}
             onHistoryClick={(e: any) => {
-              setGroup([...groups, e]);
+              setGroup(e.data);
             }}
+            newChat={() => setGroup([])}
           />
         </section>
       </div>
@@ -157,8 +185,9 @@ export default function Chat() {
           <XSMenu
             history={history.data}
             onHistoryClick={(e: any) => {
-              setGroup([...groups, e]);
+              setGroup(e.data);
             }}
+            newChat={() => setGroup([])}
           />
           <main className="relative pt-20 h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1">
             <XSConversation
@@ -173,9 +202,11 @@ export default function Chat() {
               <XSTextBox
                 onChage={(e) => setInput(e)}
                 onEnter={fetchData}
-                onClick={fetchData}
+                onSubmit={fetchData}
                 input={input}
                 loading={item.loading}
+                onRefresh={onRefresh}
+                saveHistory={saveHistory}
               />
               <div className="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
                 <a

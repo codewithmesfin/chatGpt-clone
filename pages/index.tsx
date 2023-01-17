@@ -1,9 +1,8 @@
-/* This example requires Tailwind CSS v3.0+ */
-import { useState } from "react";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Head from "next/head";
+import Navbar from "../components/navbar";
+import Image from "next/image";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -13,8 +12,6 @@ const navigation = [
 ];
 
 export default function Index() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <div className="isolate bg-white">
       <Head>
@@ -24,114 +21,234 @@ export default function Index() {
           content="We are dedicated to creating the highest quality software products with exceptional brands of any size. Our goal is to consistently provide our customers with extraordinary services, offering fast, reliable turn arounds with low minimums and high volume capacity"
           key="desc"
         />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5828433625810537"
-          crossOrigin="anonymous"
-        ></script>
       </Head>
-      <main>
-        <div className="relative px-6 lg:px-8">
-          <div className="mx-auto w-full md:max-w-3xl md:p-10">
-            <div>
-              <div className="py-5 pb-10">
-                <h1 className="text-center font-extrabold text-blue-600 text-4xl md:text-6xl">EtyopChat</h1>
-              </div>
-              <div className="mb-8 sm:flex sm:justify-center">
-                <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                  <span className="text-gray-600">
-                    Alternative to ChatGPT
-                    <Link
-                      href="/chat"
-                      className="font-semibold pl-3 text-indigo-600"
-                    >
-                      <span className="absolute inset-0" aria-hidden="true" />
-                      Try it now <span aria-hidden="true">&rarr;</span>
-                    </Link>
-                  </span>
-                </div>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold tracking-tight text-center sm:text-6xl">
-                ChatGPT:  Optimizing language models for dialogue
-                </h1>
-                <p className="mt-6 md:text-lg leading-8 text-gray-600 sm:text-center">
-                  The team at OpenAI trained a model called ChatGPT which
-                  interacts in a conversational way. The dialogue format makes
-                  it possible for ChatGPT to answer followup questions, admit
-                  its mistakes, challenge incorrect premises, and reject
-                  inappropriate requests. ChatGPT is a sibling model to
-                  InstructGPT, which is trained to follow an instruction in a
-                  prompt and provide a detailed response.
-                </p>
-                <div className="mt-8 flex md:gap-x-4 justify-evenly">
-                  <Link
-                    href="/chat"
-                    className="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
-                  >
-                    Get started{" "}
-                    <span className="text-indigo-200" aria-hidden="true">
-                      &rarr;
-                    </span>
-                  </Link>
-                  <Link
-                    href="https://openai.com/blog/"
-                    className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
-                  >
-                    Learn more
-                    <span className="text-gray-400 pl-2" aria-hidden="true">
-                      &rarr;
-                    </span>
-                  </Link>
-                </div>
 
-
-                <div className="mt-8">
-                 <p className="text-center text-sm text-blue-400">
-                  This chat-bot is designed for those who are not able to access ChatGPT or other OpenAI Features in Ethiopia.
-                  API integration and UI customization by:
-                 </p>
-                 <div className="flex justify-evenly p-2">
-                 <Link href="https://bizenforce.vercel.app" className="text-blue-600 text-xs md:text-lg font-semibold">Mesfin Tsegaye</Link>
-                 <Link href="https://www.linkedin.com/in/mesfin-tsegaye" className="text-blue-600 text-xs md:text-lg font-semibold">LinkedIn</Link>
-                 <Link href="https://github.com/sciemesfin" className="text-blue-600 text-xs md:text-lg font-semibold">GitHub</Link>
-                 </div>
-                </div>
-              </div>
-              <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+      <>
+        {/* component */}
+        <Navbar />
+        <section className="bg-white dark:bg-gray-900">
+          <div className="grid max-w-screen-xl px-4  mx-auto lg:gap-8 xl:gap-0 py-20 lg:grid-cols-12">
+            <div className="mr-auto place-self-center lg:col-span-7">
+              <h1 className="max-w-2xl mb-4 text-4xl font-extrabold text-blue-600 leading-none md:text-5xl xl:text-6xle">
+                Powerful Chatbot for AI lovers
+              </h1>
+              <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                A simple AI powered chat-bot developed by utilizing the
+                OpenAI Chat API endpoint. This technology enables developers to
+                create interactive, natural language-based conversations with
+                users. The simplest alternative to
+                <Link
+                  href="https://chat.openai.com"
+                  target="_blank"
+                  className="text-blue-600 font-bold"
+                >
+                  {" "}
+                  ChatGPT
+                </Link>{" "}
+                (Optimizing language models for dialogue)
+              </p>
+              <Link
+                href="/chat"
+                className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+              >
+                Get started
                 <svg
-                  className="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
-                  viewBox="0 0 1155 678"
-                  fill="none"
+                  className="w-5 h-5 ml-2 -mr-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)"
-                    fillOpacity=".3"
-                    d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
                   />
-                  <defs>
-                    <linearGradient
-                      id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc"
-                      x1="1155.49"
-                      x2="-78.208"
-                      y1=".177"
-                      y2="474.645"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stopColor="#9089FC" />
-                      <stop offset={1} stopColor="#FF80B5" />
-                    </linearGradient>
-                  </defs>
                 </svg>
-              </div>
-
-
-              
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/mesfin-tsegaye"
+                target="_blank"
+                className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+              >
+                Contact Developer
+              </Link>
+            </div>
+            <div className="hidden items-end justify-center lg:mt-0 lg:col-span-5 lg:flex">
+              <img
+                src="/i1.png"
+                alt="mockup"
+                className="max-h-[450px]"
+              />
             </div>
           </div>
-        </div>
-      </main>
+        </section>
+
+        <section className="bg-white dark:bg-gray-900">
+          <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+            <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+              <h2 className="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">
+                I did not reinvent the chatbot
+              </h2>
+              <p className="mb-4">
+                I just developed the interface logic and connected with the
+                OpenAI chat endpoint. I made this system to make the ChatGPT
+                service available in Africa. This chatbot is designed to
+                understand and respond to user input in real-time by leveraging
+                a combination of machine learning algorithms, natural language
+                processing, and semantic understanding.
+              </p>
+              <p>
+                By using this technology, developers can create a powerful
+                AI-driven conversational AI agent that can engage users in
+                meaningful conversations and provide personalized responses.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4 mt-8">
+              <img
+                className="w-full rounded-lg"
+                // src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
+                src="/i2.avif"
+                alt="office content 1"
+              />
+              <img
+                className="mt-4 w-full lg:mt-10 rounded-lg"
+                src="/i3.avif"
+                alt="office content 2"
+              />
+            </div>
+          </div>
+        </section>
+        <section className="bg-gray-50 dark:bg-gray-900 dark:bg-gray-800">
+          <div className="py-8 md:flex md:space-x-20 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+            <div className="w-full md:w-1/2 text-gray-500 sm:text-lg dark:text-gray-400">
+              <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+              Building next-gen apps with {" "}
+                <Link href="https://openai.com/" className="font-extrabold text-blue-600">OpenAI’s</Link>  powerful models.
+              </h2>
+              <p className="mb-4 font-light">
+                The team at OpenAI trained a model called ChatGPT which
+                interacts in a conversational way. The dialogue format makes it
+                possible for ChatGPT to answer followup questions, admit its
+                mistakes, challenge incorrect premises, and reject inappropriate
+                requests. ChatGPT is a sibling model to InstructGPT, which is
+                trained to follow an instruction in a prompt and provide a
+                detailed response.
+              </p>
+              <Link
+                href="https://openai.com" target="_blank"
+                className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700"
+              >
+                Learn more
+                <svg
+                  className="ml-1 w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </Link>
+            </div>
+            <div className="w-full md:w-1/2 ">
+              <h1 className="text-xl py-2 md:text-7xl text-blue-600 font-extrabold pb-10">
+                The developer
+              </h1>
+              <div className="flex items-center space-x-2 md:space-x-10">
+                <Image
+                  width={150}
+                  height={170}
+                  src="/mesfin.jpg"
+                  alt="developer"
+                  className="rounded-full"
+                />
+                <div>
+                  <h1 className="text-xl py-2 md:text-2xl font-semibold">
+                    Mesfin Tsegaye
+                  </h1>
+                  <p>
+                    Full Stack Developer with 5 years of experience as a Full
+                    stack developer in international companies. Mesfin loves
+                    Programming; studying real world problems and looking for a
+                    better solution.
+                  </p>
+                  <div className="flex justify-between items-center space-2">
+                    <Link
+                      href="https://bizenforce.vercel.app"
+                      className="hover:underline"
+                    >
+                      View profile on:
+                    </Link>
+
+                    <Link
+                      href="https://www.linkedin.com/in/mesfin-tsegaye"
+                      className="text-blue-600 hover:text-blue-900 dark:hover:text-white"
+                    >
+                      Linkedin
+                    </Link>
+                    <Link
+                      href="https://github.com/sciemesfin"
+                      className="text-blue-600 hover:text-blue-900 dark:hover:text-white"
+                    >
+                      Github
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-white dark:bg-gray-900">
+          <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+            <div className="mx-auto max-w-screen-sm text-center">
+              <h2 className="mb-4 text-4xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                Start today, it is 100% free
+              </h2>
+              <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">
+                Try Flowbite Platform for 30 days. No credit card required.
+              </p>
+              <Link
+                href="/chat"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              >
+                Try EtyopChat 100% free
+              </Link>
+            </div>
+          </div>
+        </section>
+        <footer className="p-4 bg-gray-50 sm:p-6 dark:bg-gray-800">
+          <div className="mx-auto max-w-screen-xl">
+            <div className="sm:flex sm:items-center sm:justify-between">
+              <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                © 2022{" "}
+                <Link
+                  href="https://bizenforce.vercel.app"
+                  className="hover:underline"
+                >
+                  Developed by: Mesfin Tsegaye
+                </Link>
+              </span>
+              <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+                <Link
+                  href="https://www.linkedin.com/in/mesfin-tsegaye"
+                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                >
+                  Linkedin
+                </Link>
+                <Link
+                  href="https://github.com/sciemesfin"
+                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                >
+                  Github
+                </Link>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </>
     </div>
   );
 }
