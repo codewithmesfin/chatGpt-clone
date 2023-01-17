@@ -154,7 +154,7 @@ export default function Index() {
               </Link>
             </div>
             <div className="w-full md:w-1/2 ">
-              <h1 className="text-xl py-2 md:text-7xl text-blue-600 font-extrabold pb-10">
+              <h1 className="text-xl py-2 md:text-7xl text-center md:text-left text-blue-600 font-extrabold pb-10">
                 The developer
               </h1>
               <div className="flex items-center space-x-2 md:space-x-10">
