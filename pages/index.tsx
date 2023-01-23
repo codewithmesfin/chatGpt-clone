@@ -209,9 +209,6 @@ export default function Index() {
               <h2 className="mb-4 text-4xl font-extrabold leading-tight text-gray-900 dark:text-white">
                 Start today, it is 100% free
               </h2>
-              <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">
-                Try Flowbite Platform for 30 days. No credit card required.
-              </p>
               <Link
                 href="/chat"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
